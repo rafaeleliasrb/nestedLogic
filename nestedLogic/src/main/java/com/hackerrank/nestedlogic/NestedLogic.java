@@ -8,16 +8,16 @@ public class NestedLogic {
 
     public static void main(String[] args) {
         
-        int day1 = scanner.nextInt();
-        int month1 = scanner.nextInt();
-        int year1 = scanner.nextInt();
+        int returnedDay = scanner.nextInt();
+        int returnedMonth = scanner.nextInt();
+        int returnedYear = scanner.nextInt();
 
-        int day2 = scanner.nextInt();
-        int month2 = scanner.nextInt();
-        int year2 = scanner.nextInt();
+        int expectedDay = scanner.nextInt();
+        int expectedMonth = scanner.nextInt();
+        int expectedYear = scanner.nextInt();
 
-        int fine = calculeFine(day1, month1, year1,
-        		day2, month2, year2);
+        int fine = calculeFine(returnedDay, returnedMonth, returnedYear,
+        		expectedDay, expectedMonth, expectedYear);
         
         System.out.println(fine);
 
