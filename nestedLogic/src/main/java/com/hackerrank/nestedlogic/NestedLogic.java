@@ -2,6 +2,12 @@ package com.hackerrank.nestedlogic;
 
 import java.util.Scanner;
 
+import com.hackerrank.nestedlogic.fine.BigFine;
+import com.hackerrank.nestedlogic.fine.Fine;
+import com.hackerrank.nestedlogic.fine.MediumFine;
+import com.hackerrank.nestedlogic.fine.NoFine;
+import com.hackerrank.nestedlogic.fine.SmallFine;
+
 public class NestedLogic {
 
 	private static final Scanner scanner = new Scanner(System.in);
@@ -27,23 +33,29 @@ public class NestedLogic {
     public static int calculeFine(int returnedDay, int returnedMonth, int returnedYear,
     		int expectedDay, int expectedMonth, int expectedYear) {
     	
-        if(expectedYear > returnedYear || 
+        return getFine(returnedDay, returnedMonth, returnedYear, 
+        		expectedDay, expectedMonth, expectedYear)
+        		.calcule();
+    }
+
+	private static Fine getFine(int returnedDay, int returnedMonth, int returnedYear, int expectedDay,
+			int expectedMonth, int expectedYear) {
+		if(expectedYear > returnedYear || 
             (expectedYear == returnedYear && expectedMonth > returnedMonth) || 
             (expectedYear == returnedYear && expectedMonth == returnedMonth && 
                 expectedDay >= returnedDay)) {
-        	return 0;
+        	return new NoFine();
         }
         else if(expectedYear == returnedYear && 
         	expectedMonth == returnedMonth) {
-        	return 15*(returnedDay - expectedDay);
+        	return new SmallFine(returnedDay, expectedDay);
         }
 
         else if(expectedYear == returnedYear) {
-        	return 500*(returnedMonth - expectedMonth);
+        	return new MediumFine(returnedMonth, expectedMonth);
         }
         else {
-        	return 10000;
+        	return new BigFine();
         }
-
-    }
+	}
 }
