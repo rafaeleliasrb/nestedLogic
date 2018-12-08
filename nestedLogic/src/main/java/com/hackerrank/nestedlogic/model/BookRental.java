@@ -5,9 +5,9 @@ public class BookRental {
 	private final LibraryDate expectedDate;
 	private final LibraryDate returnedDate;
 	
-	public BookRental(LibraryDate expectedDate, LibraryDate returnedDate) {
-		this.expectedDate = expectedDate;
+	public BookRental(LibraryDate returnedDate, LibraryDate expectedDate) {
 		this.returnedDate = returnedDate;
+		this.expectedDate = expectedDate;
 	}
 
 	public boolean isReturnedDateLessThanExpectedDate() {

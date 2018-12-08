@@ -1,8 +1,6 @@
 package com.hackerrank.nestedlogic;
 
 import java.util.Scanner;
-
-import com.hackerrank.nestedlogic.fine.Fine;
 import com.hackerrank.nestedlogic.fine.FineFactory;
 import com.hackerrank.nestedlogic.model.BookRental;
 import com.hackerrank.nestedlogic.model.LibraryDate;
@@ -31,15 +29,10 @@ public class NestedLogic {
 
     public static int calculeFine(int returnedDay, int returnedMonth, int returnedYear,
     		int expectedDay, int expectedMonth, int expectedYear) {
-    	
-        return getFine(returnedDay, returnedMonth, returnedYear, 
-        		expectedDay, expectedMonth, expectedYear)
+    	LibraryDate expectedDate = new LibraryDate(expectedDay, expectedMonth, expectedYear);
+    	LibraryDate returnedDate = new LibraryDate(returnedDay, returnedMonth, returnedYear);
+        
+    	return FineFactory.getFine(new BookRental(returnedDate, expectedDate))
         		.calcule();
     }
-
-	private static Fine getFine(int returnedDay, int returnedMonth, int returnedYear, int expectedDay,
-			int expectedMonth, int expectedYear) {
-		return FineFactory.getFine(new BookRental(new LibraryDate(expectedDay, expectedMonth, expectedYear), 
-				new LibraryDate(returnedDay, returnedMonth, returnedYear)));
-	}
 }
