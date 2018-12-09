@@ -172,3 +172,13 @@ public class FineFactory {
     }
 }
 ```
+
+<p align="justify">
+The latter solution the If statements are placed in a more appropriate place. Design patterns can be a good solution for nested ifs that look complicated
+</p>
+
+## Conclusion
+<p align="justify">
+As has been said previously, simple problems to solve sometimes have complicated solutions due to the use of wrong techniques. Object orientation is a powerful tool if well used and facilitates our work as a programmer.<br/>
+What do you think of these solutions?
+</p>
