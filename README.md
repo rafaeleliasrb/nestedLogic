@@ -33,7 +33,7 @@ The tests are:
 
 > For implementation details see: <a href="https://github.com/rafaeleliasrb/nestedLogic">https://github.com/rafaeleliasrb/nestedLogic</a>
 
-## The Ugly, the Bad and the Good
+## The Ugly, the Bad and the Good solution
 In this section, we will discuss solutions and improvements with each other, incrementally.
 
 ### The Ugly
@@ -41,7 +41,7 @@ The first solution is just a method with nested If statements without the use of
 
 ```java
 public static int calculeFine(int day1, int month1, int year1,
-    int day2, int month2, int year2) {
+        int day2, int month2, int year2) {
     	
     if(year2 > year1 || 
         (year2 == year1 && month2 > month1) || 
@@ -63,4 +63,38 @@ public static int calculeFine(int day1, int month1, int year1,
 <p align="justify">
 This solution is ugly because variable names have no meaning and nested Ifs may be difficult to understand.
 Names like day1 and day2 are not good names and maybe a week after they are written, it will be hard to tell what they are.
+</p>
+
+### The Bad
+This solution is an improved version of the ugly version, has more meaningful names for variables, but uses the same If statements.
+```java
+public static int calculeFine(int returnedDay, int returnedMonth, int returnedYear,
+        int expectedDay, int expectedMonth, int expectedYear) {
+
+    boolean isSameYearAndReturnedMonthBeforeExpected = 
+            expectedYear == returnedYear && expectedMonth > returnedMonth;
+    boolean isSameYearAndMonth = 
+            expectedYear == returnedYear && expectedMonth == returnedMonth;
+    boolean isSameYearAndMonthAndReturnedDayBeforeExpected = 
+            isSameYearAndMonth && expectedDay >= returnedDay;
+
+    if(expectedYear > returnedYear || 
+        isSameYearAndReturnedMonthBeforeExpected || 
+        isSameYearAndMonthAndReturnedDayBeforeExpected) {
+        return 0;
+    }
+    else if(isSameYearAndMonth) {
+        return 15*(returnedDay - expectedDay);
+    }
+    else if(expectedYear == returnedYear) {
+        return 500*(returnedMonth - expectedMonth);
+    }
+    else {
+        return 10000;
+    }
+}
+```
+
+<p align="justify">
+Nested Ifs are more understandable and it will be easier to read the code one week after it has been written. But still does not make good use of OO concepts.
 </p>
