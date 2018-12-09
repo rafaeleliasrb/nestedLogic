@@ -96,5 +96,79 @@ public static int calculeFine(int returnedDay, int returnedMonth, int returnedYe
 ```
 
 <p align="justify">
-Nested Ifs are more understandable and it will be easier to read the code one week after it has been written. But still does not make good use of OO concepts.
+Nested Ifs are more understandable and it will be easier to read the code one week after it has been written. But still doesn't make good use of OO concepts.
 </p>
+
+### The Good
+This solution makes better use of OO concepts and is more readable and easier to maintain.
+```java
+public static int calculeFine(int returnedDay, int returnedMonth, int returnedYear,
+        int expectedDay, int expectedMonth, int expectedYear) {
+    LibraryDate expectedDate = new LibraryDate(expectedDay, expectedMonth, expectedYear);
+    LibraryDate returnedDate = new LibraryDate(returnedDay, returnedMonth, returnedYear);
+    return FineFactory.getFine(new BookRental(returnedDate, expectedDate))
+         .calcule();
+}
+```
+<p align="justify">
+As we can see, some classes were created. For example, the LibraryDate class groups the year, month, and day variables. The BookRental class groups the expected and returned dates.
+</p>
+<p align="justify">
+But where are the nested Ifs?
+For this, the Fine interface was created that only has a method called calcule.
+</p>
+
+```java
+public interface Fine {
+    public int calcule();
+}
+```
+<p align="justify">
+And the content was put in classes that implements Fine interface, the classes are: NoFine, SmallFine, MediumFine and BigFine.<br/>
+For example, SmallFine class:
+
+```java
+public class SmallFine implements Fine {
+    private int returnedDay;
+    private int expectedDay;
+
+    public SmallFine(int returnedDay, int expectedDay) {
+        this.returnedDay = returnedDay;
+        this.expectedDay = expectedDay;
+    }
+
+    @Override
+    public int calcule() {
+        return 15*(returnedDay - expectedDay);
+    }
+}
+```
+</p>
+
+<p align="justify">
+For selected the right class were created FineFactory class.
+</p>
+
+```java
+public class FineFactory {
+
+    private FineFactory() {
+        throw new IllegalStateException("Utility class");
+    }
+
+    public static Fine getFine(BookRental bookRental) {
+        if(bookRental.isReturnedDateLessThanExpectedDate()) {
+            return new NoFine();
+        }
+        else if(bookRental.isSameYear() && bookRental.isSameMonth()) {
+            return new SmallFine(bookRental.getReturnedDate().getDay(), 
+                bookRental.getExpectedDate().getDay());
+        }
+        else if(bookRental.isSameYear()) {
+            return new MediumFine(bookRental.getReturnedDate().getMonth(), 
+                bookRental.getExpectedDate().getMonth());
+        }
+        return new BigFine();
+    }
+}
+```
