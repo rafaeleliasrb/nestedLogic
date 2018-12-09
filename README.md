@@ -11,7 +11,7 @@ For more datails about the problem see the link: <a href="https://www.hackerrank
 
 ## Environment
 The solutions are in Java, using Maven. The project has only one dependency which is the JUnit test framework.
-> **Tip:** <span align="justify">Since we're talking about saving time, knowing the keyboard shortcuts of your IDE, each IDE has dozen of them. Tasks that we use multiple clicks on the mouse can be done with just a touch on the keyboard.</span>
+> **Tip:** <span align="justify">As we speak of saving time, knowing some keyboard shortcuts in our IDE helps us a lot. Tasks that we use multiple mouse clicks can be done with just one touch on the keyboard.</span>
 
 ## Unit Test
 <p align="justify">
