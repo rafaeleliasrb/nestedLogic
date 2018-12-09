@@ -1,5 +1,3 @@
-# Hackerrank problem Nested Logic
-
 <p align="justify">
 This is a simple problem whose objective is <i>"puts your understanding of nested conditional statements to the test"</i>.
 However, although easy to solve, the solution can be confusing if we don't use good programming techniques.
