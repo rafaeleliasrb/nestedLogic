@@ -8,7 +8,7 @@ This situation is common in our work, when we wrote complicated solutions to pro
 This is not related to the beauty of the code, beauty is something relative, but the ease of understanding the code because a certainty we have in the programmer's life is that the code will have changes and the more complicated to understand the code the more time will be spent to change it.</p>
 <p align="justify">
 In this post we will make three different solutions to the problem and discuss what the improvements are in relation to each other.
-For more datails about the problem see the link: <a href="https://www.hackerrank.com/challenges/30-nested-logic/problem">Nested Logic</a>
+For more datails about the problem see the link: <a href="https://www.hackerrank.com/challenges/30-nested-logic/problem">Nested Logic</a>.
 </p>
 
 ## Environment
@@ -116,7 +116,7 @@ public static int calculeFine(int returnedDay, int returnedMonth, int returnedYe
 As we can see, some classes were created. For example, the LibraryDate class groups the year, month, and day variables. The BookRental class groups the expected and returned dates.
 </p>
 <p align="justify">
-But where are the nested Ifs?
+But where are the nested Ifs?<br/>
 For this, the Fine interface was created that only has a method called calcule.
 </p>
 
@@ -175,7 +175,7 @@ public class FineFactory {
 ```
 
 <p align="justify">
-The latter solution the If statements are placed in a more appropriate place. Design patterns can be a good solution for nested ifs that look complicated
+The latter solution the If statements are placed in a more appropriate place. Design patterns can be a good solution for nested ifs that look complicated.
 </p>
 
 ## Conclusion
