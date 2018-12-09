@@ -95,11 +95,11 @@ public static int calculeFine(int returnedDay, int returnedMonth, int returnedYe
 ```
 
 <p align="justify">
-Nested Ifs are more understandable and it will be easier to read the code one week after it has been written. But still doesn't make good use of OO concepts.
+Nested Ifs, here, are more understandable and it will be easier to read the code one week after it has been written. But still doesn't make good use of OO concepts.
 </p>
 
 ### The Good
-This solution makes better use of OO concepts and is more readable and easier to maintain:
+This latter solution tries to make better use of OO concepts and make the code more readable:
 
 ```java
 public static int calculeFine(int returnedDay, int returnedMonth, int returnedYear,
@@ -115,16 +115,7 @@ As we can see, some classes were created. For example, the LibraryDate class gro
 </p>
 <p align="justify">
 But where are the nested Ifs?<br/>
-For this, the Fine interface was created that only has a method called calcule:
-</p>
-
-```java
-public interface Fine {
-    public int calcule();
-}
-```
-<p align="justify">
-And the content was put in classes that implements Fine interface, the classes are: NoFine, SmallFine, MediumFine and BigFine. For example, SmallFine class:
+For this, the Fine interface was created that only has a method called <i>calcule</i> and the content was put in classes that implements Fine interface. The classes are: NoFine, SmallFine, MediumFine and BigFine. Below is the example of the SmallFine class:
 </p>
 
 ```java
@@ -145,7 +136,7 @@ public class SmallFine implements Fine {
 ```
 
 <p align="justify">
-For selected the right class were created FineFactory class:
+And for selected the right class were created FineFactory class:
 </p>
 
 ```java
@@ -173,7 +164,7 @@ public class FineFactory {
 ```
 
 <p align="justify">
-The latter solution the If statements are placed in a more appropriate place. Design patterns can be a good solution for nested ifs that look complicated.
+The latter solution the If statements are placed in a more appropriate place. Design patterns can be a good solution for nested Ifs that look complicated.
 </p>
 
 ## Conclusion
