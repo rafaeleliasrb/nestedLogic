@@ -67,6 +67,7 @@ Names like day1 and day2 are not good names and maybe a week after they are writ
 
 ### The Bad
 This solution is an improved version of the ugly version, has more meaningful names for variables, but uses the same If statements.
+
 ```java
 public static int calculeFine(int returnedDay, int returnedMonth, int returnedYear,
         int expectedDay, int expectedMonth, int expectedYear) {
@@ -101,6 +102,7 @@ Nested Ifs are more understandable and it will be easier to read the code one we
 
 ### The Good
 This solution makes better use of OO concepts and is more readable and easier to maintain.
+
 ```java
 public static int calculeFine(int returnedDay, int returnedMonth, int returnedYear,
         int expectedDay, int expectedMonth, int expectedYear) {
@@ -124,8 +126,8 @@ public interface Fine {
 }
 ```
 <p align="justify">
-And the content was put in classes that implements Fine interface, the classes are: NoFine, SmallFine, MediumFine and BigFine.<br/>
-For example, SmallFine class:
+And the content was put in classes that implements Fine interface, the classes are: NoFine, SmallFine, MediumFine and BigFine. For example, SmallFine class:
+</p>
 
 ```java
 public class SmallFine implements Fine {
@@ -143,7 +145,6 @@ public class SmallFine implements Fine {
     }
 }
 ```
-</p>
 
 <p align="justify">
 For selected the right class were created FineFactory class.
