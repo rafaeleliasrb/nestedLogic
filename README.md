@@ -15,3 +15,19 @@ For more datails about the problem see the link: <a href="https://www.hackerrank
 The solutions are in Java and the project is Maven. the project has only one dependency which is the JUnit test framework.
 > **Tip:** <span align="justify">Since we're talking about saving time, knowing the keyboard shortcuts of your IDE, each IDE has dozen of them. Tasks that we use multiple clicks on the mouse can be done with just a touch on the keyboard.</span>
 
+## Unit Test
+<p align="justify">
+First of all, let's write the unit tests to ensure that any improvements we make to the code do not change the expected result.
+The tests are:
+</p>
+
+1. ifReturnedYearBeforeExpectedYearNoFine
+2. ifSameYearAndReturnedMonthBeforeExpectedMonthNoFine
+3. ifSameYearAndReturnedMonthBeforeExpectedMonthNoFine
+4. ifSameYearAndSameMonthAndSameDayNoFine
+5. ifSameYearAndSameMonthAndReturnedDayAfterExpectedDaySmallFine
+6. ifSameYearAndReturnedMonthAfterExpectedMonthMediumFine
+7. ifReturnedYearAfterExpectedYearBigFine
+
+> For implementation details see: https://github.com/rafaeleliasrb/nestedLogic
+
